@@ -1,0 +1,16 @@
+﻿@model TravelBlog.Models.Location
+
+<h2>More about @Model.Name</h2>
+
+<hr />
+
+<h3>Experiences</h3>
+<ul>
+@foreach (var listExperience in Model.Experiences)
+{
+    <li>@Html.ActionLink("listExperience.Title", "~/Experiences/Details/", new { id = listExperience.ExperienceId }) </li>
+}
+
+</ul>
+
+

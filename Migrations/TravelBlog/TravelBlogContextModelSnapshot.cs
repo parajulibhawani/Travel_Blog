@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using TravelBlog.Models;
 
-namespace TravelBlog.Migrations
+namespace TravelBlog.Migrations.TravelBlog
 {
-    [DbContext(typeof(TravelBlogDBContext))]
-    partial class TravelBlogDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(TravelBlogContext))]
+    partial class TravelBlogContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

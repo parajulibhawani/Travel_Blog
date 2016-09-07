@@ -1,0 +1,17 @@
+﻿@model TravelBlog.Models.Location
+
+<h2>Add a location</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+
+    <input type="submit" value="Create" />
+}
+
+@Html.ActionLink("Back to Index", "Index")

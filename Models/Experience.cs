@@ -12,6 +12,7 @@ namespace TravelBlog.Models
     {
         [Key]
         public int ExperienceId { get; set; }
+        public string Title { get; set; }
         public string Entry { get; set; }
         public DateTime Date { get; set; }
         public virtual ICollection<Person> People { get; set; }

@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using TravelBlog.Models;
 
-namespace TravelBlog.Migrations
+namespace TravelBlog.Migrations.TravelBlog
 {
-    [DbContext(typeof(TravelBlogDBContext))]
-    partial class TravelBlogDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(TravelBlogContext))]
+    [Migration("20160907183043_ExperienceTitleAdd")]
+    partial class ExperienceTitleAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rc2-20901")

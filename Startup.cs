@@ -26,14 +26,21 @@ namespace TravelBlog
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddEntityFramework()
-                .AddDbContext<TravelBlogDbContext>(options =>
+                .AddDbContext<TravelBlogDBContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");

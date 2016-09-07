@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelBlog.Models
 {
-    public class TravelBlogDbContext : DbContext
+    public class TravelBlogDBContext : DbContext
     {
         public DbSet<Experience> Categories { get; set; }
 
@@ -14,7 +14,7 @@ namespace TravelBlog.Models
 
         public DbSet<Person> People { get; set; }
 
-        public TravelBlogDbContext(DbContextOptions<TravelBlogDbContext> options)
+        public TravelBlogDBContext(DbContextOptions<TravelBlogDBContext> options)
             : base(options)
         {
         }
