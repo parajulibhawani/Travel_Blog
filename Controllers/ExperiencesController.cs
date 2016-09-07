@@ -14,12 +14,19 @@ namespace TravelBlog.Controllers
         private TravelBlogContext db = new TravelBlogContext();
         public IActionResult Index()
         {
-            return View();
+            return View(db.Experiences.ToList());
         }
         public IActionResult Create()
         {
             ViewBag.LocationId = new SelectList(db.Locations, "LocationId", "Name");
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Experience experience)
+        {
+            db.Experiences.Add(experience);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

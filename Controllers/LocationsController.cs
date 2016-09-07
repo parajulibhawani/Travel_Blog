@@ -19,6 +19,7 @@ namespace TravelBlog.Controllers
         public IActionResult Details(int id)
         {
             var thisLocation = db.Locations.FirstOrDefault(locations => locations.LocationId == id);
+            ViewBag.theseExperiences = db.Experiences.FirstOrDefault(experiences => experiences.LocationId == thisLocation.LocationId);
             return View(thisLocation);
         }
         public IActionResult Create()

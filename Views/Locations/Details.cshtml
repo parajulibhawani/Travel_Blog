@@ -6,11 +6,10 @@
 
 <h3>Experiences</h3>
 <ul>
-@foreach (var listExperience in Model.Experiences)
-{
-    <li>@Html.ActionLink("listExperience.Title", "~/Experiences/Details/", new { id = listExperience.ExperienceId }) </li>
-}
-
+    @foreach(var listExperience in Model.Experiences)
+    {
+        <li>@listExperience.Title</li>
+    }
 </ul>
 
 

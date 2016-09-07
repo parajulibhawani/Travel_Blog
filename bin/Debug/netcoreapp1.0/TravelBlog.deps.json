@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "941746724929e83771f3802724acfb5b3c677dac"
+    "signature": "ed0001b1b205e02e9ba8e0790eda633101ebb019"
   },
   "compilationOptions": {
     "defines": [
@@ -22,7 +22,8 @@
           "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-final",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc2-final",
-          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final"
+          "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.StaticFiles": "1.0.0-rc2-final"
         },
         "runtime": {
           "TravelBlog.dll": {}
@@ -655,6 +656,21 @@
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.AspNetCore.Server.Kestrel.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.StaticFiles/1.0.0-rc2-final": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http.Extensions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.FileProviders.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.StaticFiles.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.StaticFiles.dll": {}
         }
       },
       "Microsoft.AspNetCore.WebUtilities/1.0.0-rc2-final": {
@@ -3612,6 +3628,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ojeLfBZ+H7uVImuzqErcNv8hN8Z8+k99jSl2U+cwEMddJXnzqjND20NlwNW/g4/3roLB3F3+6kYTy3wWMYFQCg=="
+    },
+    "Microsoft.AspNetCore.StaticFiles/1.0.0-rc2-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MOv6HHX1C/62ljMsl/MK9hlG+f/9k3+kR6CHHaf2gqTXMb3qOf3gfthiTQIESTh66JxC7ZcFVCKdNKuodlXsgA=="
     },
     "Microsoft.AspNetCore.WebUtilities/1.0.0-rc2-final": {
       "type": "package",
