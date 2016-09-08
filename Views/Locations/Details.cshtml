@@ -6,7 +6,7 @@
 
 <h3>Experiences</h3>
 <ul>
-    @foreach(var listExperience in Model.Experiences)
+    @foreach(var listExperience in ViewBag.theseExperiences)
     {
         <li>@listExperience.Title</li>
     }

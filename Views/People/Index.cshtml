@@ -1,0 +1,14 @@
+﻿@model IEnumerable<TravelBlog.Models.Person>
+@{
+    ViewData["Title"] = "Person";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>People We've Met</h2>
+
+<ul>
+    @foreach (var person in Model)
+    {
+        <li>@Html.DisplayFor(listPerson => person.Name)</li>
+    }
+</ul>
