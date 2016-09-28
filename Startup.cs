@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using TravelBlog.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace TravelBlog
 {
@@ -23,6 +24,33 @@ namespace TravelBlog
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json");
             Configuration = builder.Build();
+        }
+
+        public async void DataInitialize()
+        {
+            TravelBlogDbContext context = new TravelBlogDbContext();
+            string[] roles = new string[] { "Admin" };
+            foreach (string role in roles)
+            {
+                var roleStore = new RoleStore<IdentityRole>(context);
+
+                if (!context.Roles.Any(r => r.Name == role))
+                {
+                    roleStore.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+            var userStore = new UserStore<IdentityUser>(context);
+           
+            if (!context.Users.Any(u => u.UserName == "parajulibhawani@gmail.com"))
+            {
+                var user = new IdentityUser { UserName = "parajulibhawani@gmail.com" };
+                var password = new PasswordHasher<IdentityUser>();
+                var hashed = password.HashPassword(user, "Test1234!");
+                user.PasswordHash = hashed;
+                var result = await userStore.CreateAsync(user);
+            }
+            context.SaveChangesAsync();
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -47,6 +75,8 @@ namespace TravelBlog
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DataInitialize();
 
             app.Run(async (context) =>
             {
