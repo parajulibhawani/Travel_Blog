@@ -11,7 +11,7 @@ namespace TravelBlog.Controllers
 {
     public class ExperiencesController : Controller
     {
-        private TravelBlogContext db = new TravelBlogContext();
+        private TravelBlogDbContext db = new TravelBlogDbContext();
         public IActionResult Index()
         {
             return View(db.Experiences.ToList());
@@ -27,6 +27,11 @@ namespace TravelBlog.Controllers
             db.Experiences.Add(experience);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public IActionResult Details(int id)
+        {
+            Experience thisExperience = db.Experiences.FirstOrDefault(e => e.ExperienceId == id);
+            return View(thisExperience);
         }
     }
 }

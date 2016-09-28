@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Places We've Been</h2>
+<h2>Experiences We've Had</h2>
 
 <ul>
     @foreach (var listExperience in Model)
     {
-        <li>@Html.DisplayFor(Model => listExperience.Title)</li>
+        <li>@Html.ActionLink(listExperience.Title, "Details", new { id = listExperience.ExperienceId }) </li>
     }
 </ul>

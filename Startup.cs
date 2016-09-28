@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using TravelBlog.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TravelBlog
 {
@@ -28,14 +29,18 @@ namespace TravelBlog
         {
             services.AddMvc();
             services.AddEntityFramework()
-                .AddDbContext<TravelBlogDBContext>(options =>
+                .AddDbContext<TravelBlogDbContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<TravelBlogDbContext>()
+                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();
+            app.UseIdentity();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

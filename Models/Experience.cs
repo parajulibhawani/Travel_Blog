@@ -16,7 +16,6 @@ namespace TravelBlog.Models
         public string Entry { get; set; }
         public DateTime Date { get; set; }
         public int LocationId { get; set; }
-        public virtual ICollection<Person> People { get; set; }
         public virtual Location Location { get; set; }
     }
 }

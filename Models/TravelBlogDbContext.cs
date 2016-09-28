@@ -4,39 +4,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TravelBlog.Models
 {
-    public class TravelBlogDBContext : DbContext
+    public class TravelBlogDbContext : IdentityDbContext
     {
-        public DbSet<Experience> Categories { get; set; }
-
+        public DbSet<Experience> Experiences { get; set; }
         public DbSet<Location> Locations { get; set; }
 
-        public DbSet<Person> People { get; set; }
-
-        public TravelBlogDBContext(DbContextOptions<TravelBlogDBContext> options)
+        public TravelBlogDbContext(DbContextOptions<TravelBlogDbContext> options)
             : base(options)
         {
         }
 
-        public TravelBlogDBContext() : base()
+        public TravelBlogDbContext() : base()
         {
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<PersonLocation>().HasKey(x => new { x.PersonId, x.LocationId });
-            /*builder.Entity<PersonLocation>()
-                .HasOne(pl => pl.Person)
-                .WithMany(p => p.PersonLocations)
-                .HasForeignKey(pl => pl.PersonId);
+            base.OnModelCreating(builder);
+        }
 
-            builder.Entity<PersonLocation>()
-                .HasOne(pl => pl.Location)
-                .WithMany(l => l.PersonLocations)
-                .HasForeignKey(pl => pl.LocationId);*/
-
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=TravelBlog;integrated security=True");
         }
     }
 }

@@ -1,10 +1,7 @@
-﻿@model TravelBlog.Models.Experience
-
+﻿
 @{
     ViewData["Title"] = "Travel Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>@Model.Title</h3>
-
-<p>@Model.Entry</p>
+@Html.ActionLink("Experiences", "Index", "Experiences")

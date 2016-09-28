@@ -11,7 +11,7 @@ namespace TravelBlog.Controllers
 {
     public class LocationsController : Controller
     {
-        private TravelBlogContext db = new TravelBlogContext();
+        private TravelBlogDbContext db = new TravelBlogDbContext();
         public IActionResult Index()
         {
             return View(db.Locations.Include(locations => locations.Experiences).ToList());
