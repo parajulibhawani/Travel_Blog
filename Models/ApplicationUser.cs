@@ -8,5 +8,6 @@ namespace TravelBlog.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public bool MailingList { get; set; }
     }
 }

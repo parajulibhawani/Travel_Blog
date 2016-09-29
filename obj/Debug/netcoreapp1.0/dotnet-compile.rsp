@@ -209,9 +209,14 @@ C:\Users\epicodus\Desktop\TravelBlog-DotNet\Controllers\HomeController.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Controllers\LocationsController.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Migrations\20160928164326_ReInit.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Migrations\20160928164326_ReInit.Designer.cs
+C:\Users\epicodus\Desktop\TravelBlog-DotNet\Migrations\20160929160828_UserEmailToggle.cs
+C:\Users\epicodus\Desktop\TravelBlog-DotNet\Migrations\20160929160828_UserEmailToggle.Designer.cs
+C:\Users\epicodus\Desktop\TravelBlog-DotNet\Migrations\20160929164024_UserEmailToggle2.cs
+C:\Users\epicodus\Desktop\TravelBlog-DotNet\Migrations\20160929164024_UserEmailToggle2.Designer.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Migrations\TravelBlogDbContextModelSnapshot.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Models\ApplicationUser.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Models\Experience.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Models\Location.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Models\SampleData.cs
 C:\Users\epicodus\Desktop\TravelBlog-DotNet\Models\TravelBlogDbContext.cs
+C:\Users\epicodus\Desktop\TravelBlog-DotNet\ViewModels\SignupViewModel.cs

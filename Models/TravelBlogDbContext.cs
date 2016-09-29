@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TravelBlog.Models
 {
-    public class TravelBlogDbContext : IdentityDbContext
+    public class TravelBlogDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Location> Locations { get; set; }
