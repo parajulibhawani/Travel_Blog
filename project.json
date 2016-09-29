@@ -19,7 +19,8 @@
       "type": "build"
     },
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
-    "knockoutjs": "3.4.0"
+    "knockoutjs": "3.4.0",
+    "RestSharp.NetCore": "105.2.3"
   },
 
   "tools": {

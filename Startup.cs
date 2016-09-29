@@ -41,11 +41,11 @@ namespace TravelBlog
                     await roleStore.CreateAsync(newRole);
                 }
             }
-            var userStore = new UserStore<IdentityUser>(context);
+            var userStore = new UserStore<ApplicationUser>(context);
             if (!context.Users.Any(u => u.UserName == "parajulibhawani@gmail.com"))
             {
-                var user = new IdentityUser { UserName = "parajulibhawani@gmail.com" };
-                var password = new PasswordHasher<IdentityUser>();
+                var user = new ApplicationUser { UserName = "parajulibhawani@gmail.com" };
+                var password = new PasswordHasher<ApplicationUser>();
                 var hashed = password.HashPassword(user, "Test1234!");
                 user.PasswordHash = hashed;
 

@@ -23,8 +23,9 @@ namespace TravelBlog.Controllers
             _signInManager = signInManager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string resultMessage)
         {
+            ViewBag.message = resultMessage;
             return View();
         }
 
@@ -40,7 +41,9 @@ namespace TravelBlog.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                user.AddToMailingList();
+                user.MailingList = true;
+                return RedirectToAction("Index", "Home", "You've been added to the mailing list!");
             }
             else
             {

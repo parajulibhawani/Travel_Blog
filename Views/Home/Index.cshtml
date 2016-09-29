@@ -3,7 +3,6 @@
     ViewData["Title"] = "Travel Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div id="status-message">@ViewBag.message</div>
 <p>@Html.ActionLink("Experiences", "Index", "Experiences")</p>
-
 <p>@Html.ActionLink("Sign up for an account", "Signup")</p>
