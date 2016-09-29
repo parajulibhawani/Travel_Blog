@@ -28,14 +28,18 @@ namespace TravelBlog.Controllers
             ViewBag.message = resultMessage;
             return View();
         }
-
+    
+        public IActionResult SignUpForm()
+        {
+            return View();
+        }
         public IActionResult Signup()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Signup(SignupViewModel model)
+        public async Task<IActionResult> SignUpForm(SignupViewModel model)
         {
             var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
@@ -43,7 +47,7 @@ namespace TravelBlog.Controllers
             {
                 user.AddToMailingList();
                 user.MailingList = true;
-                return RedirectToAction("Index", "Home", "You've been added to the mailing list!");
+                return RedirectToAction("Index", "Home", new { resultMessage = "You've been added to the mailing list!" });
             }
             else
             {

@@ -3,6 +3,24 @@
     ViewData["Title"] = "Travel Blog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#signup").click(function () {
+            $.ajax({
+                type: "GET",
+                dataType: "html",
+                url: "@Url.Action("SignUpForm")",
+                success: function (result) {
+                    $("#signup-display").html(result);
+                }
+            });
+
+        })
+
+    });
+</script>
 <div id="status-message">@ViewBag.message</div>
+<div id="signup">Signup</div>
+<div id="signup-display"></div>
 <p>@Html.ActionLink("Experiences", "Index", "Experiences")</p>
 <p>@Html.ActionLink("Sign up for an account", "Signup")</p>
