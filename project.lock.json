@@ -3,6 +3,9 @@
   "version": 2,
   "targets": {
     ".NETCoreApp,Version=v1.0": {
+      "knockoutjs/3.4.0": {
+        "type": "package"
+      },
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -4079,6 +4082,17 @@
     }
   },
   "libraries": {
+    "knockoutjs/3.4.0": {
+      "sha512": "EyKTVOLETjNb+bn8RvOPMY/vxMQKPHi77LA5rT/frZf5139YjaAkbcK56Wxhmg5lpa5eVVY/wy83ExjnYXtVQA==",
+      "type": "package",
+      "path": "knockoutjs/3.4.0",
+      "files": [
+        "Content/Scripts/knockout-3.4.0.debug.js",
+        "Content/Scripts/knockout-3.4.0.js",
+        "knockoutjs.3.4.0.nupkg.sha512",
+        "knockoutjs.nuspec"
+      ]
+    },
     "Libuv/1.9.0": {
       "sha512": "9Q7AaqtQhS8JDSIvRBt6ODSLWDBI4c8YxNxyCQemWebBFUtBbc6M5Vi5Gz1ZyIUlTW3rZK9bIr5gnVyv0z7a2Q==",
       "type": "package",
@@ -10452,7 +10466,8 @@
       "Microsoft.Extensions.Configuration.FileExtensions >= 1.0.0",
       "Microsoft.Extensions.Configuration.Json >= 1.0.0",
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
-      "Microsoft.NETCore.App >= 1.0.0"
+      "Microsoft.NETCore.App >= 1.0.0",
+      "knockoutjs >= 3.4.0"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

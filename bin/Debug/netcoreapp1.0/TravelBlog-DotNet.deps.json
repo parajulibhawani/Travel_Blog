@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "9b69e51003ebc17fe1301f51659f740c5fd69c02"
+    "signature": "1da11a4799dd9d367f52289a0c97c5e24a6f2861"
   },
   "compilationOptions": {
     "defines": [
@@ -27,7 +27,8 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
           "Microsoft.EntityFrameworkCore": "1.0.0",
           "Microsoft.Extensions.Configuration.Json": "1.0.0",
-          "Microsoft.AspNetCore.StaticFiles": "1.0.0"
+          "Microsoft.AspNetCore.StaticFiles": "1.0.0",
+          "knockoutjs": "3.4.0"
         },
         "runtime": {
           "TravelBlog-DotNet.dll": {}
@@ -36,6 +37,7 @@
           "TravelBlog-DotNet.dll": {}
         }
       },
+      "knockoutjs/3.4.0": {},
       "Microsoft.AspNetCore.Antiforgery/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.DataProtection": "1.0.0",
@@ -3456,6 +3458,11 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "knockoutjs/3.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EyKTVOLETjNb+bn8RvOPMY/vxMQKPHi77LA5rT/frZf5139YjaAkbcK56Wxhmg5lpa5eVVY/wy83ExjnYXtVQA=="
     },
     "Microsoft.AspNetCore.Antiforgery/1.0.0": {
       "type": "package",

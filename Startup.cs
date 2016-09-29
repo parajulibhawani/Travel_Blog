@@ -36,7 +36,9 @@ namespace TravelBlog
 
                 if (!context.Roles.Any(r => r.Name == role))
                 {
-                    roleStore.CreateAsync(new IdentityRole(role));
+                    IdentityRole newRole = new IdentityRole(role);
+                    newRole.NormalizedName = "ADMIN";
+                    await roleStore.CreateAsync(newRole);
                 }
             }
 
@@ -49,8 +51,9 @@ namespace TravelBlog
                 var hashed = password.HashPassword(user, "Test1234!");
                 user.PasswordHash = hashed;
                 var result = await userStore.CreateAsync(user);
+                await userStore.AddToRoleAsync(user, "ADMIN");
             }
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
         }
 
         public void ConfigureServices(IServiceCollection services)
