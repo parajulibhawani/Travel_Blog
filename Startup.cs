@@ -29,31 +29,29 @@ namespace TravelBlog
         public async void DataInitialize()
         {
             TravelBlogDbContext context = new TravelBlogDbContext();
-            string[] roles = new string[] { "Admin" };
-            foreach (string role in roles)
-            {
-                var roleStore = new RoleStore<IdentityRole>(context);
 
-                if (!context.Roles.Any(r => r.Name == role))
+            string[] roles = new string[] { "Admin" };
+            var roleStore = new RoleStore<IdentityRole>(context);
+            foreach (string role in roles)
+            {              if (!context.Roles.Any(r => r.Name == role))
                 {
                     IdentityRole newRole = new IdentityRole(role);
                     newRole.NormalizedName = "ADMIN";
                     await roleStore.CreateAsync(newRole);
                 }
             }
-
             var userStore = new UserStore<IdentityUser>(context);
-           
             if (!context.Users.Any(u => u.UserName == "parajulibhawani@gmail.com"))
             {
                 var user = new IdentityUser { UserName = "parajulibhawani@gmail.com" };
                 var password = new PasswordHasher<IdentityUser>();
                 var hashed = password.HashPassword(user, "Test1234!");
                 user.PasswordHash = hashed;
+
                 var result = await userStore.CreateAsync(user);
                 await userStore.AddToRoleAsync(user, "ADMIN");
             }
-            await context.SaveChangesAsync();
+
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -80,7 +78,7 @@ namespace TravelBlog
             });
 
             DataInitialize();
-
+            
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
