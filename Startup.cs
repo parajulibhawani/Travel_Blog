@@ -26,31 +26,39 @@ namespace TravelBlog
             Configuration = builder.Build();
         }
 
-        public async void DataInitialize()
+        public async void DataInitialize(IServiceProvider services)
         {
             TravelBlogDbContext context = new TravelBlogDbContext();
+
             string[] roles = new string[] { "Admin" };
+            var roleStore = new RoleStore<IdentityRole>(context);
             foreach (string role in roles)
             {
-                var roleStore = new RoleStore<IdentityRole>(context);
+                
 
                 if (!context.Roles.Any(r => r.Name == role))
                 {
-                    roleStore.CreateAsync(new IdentityRole(role));
+                    await roleStore.CreateAsync(new IdentityRole(role));
                 }
-            }
+               
 
+            }
             var userStore = new UserStore<IdentityUser>(context);
-           
             if (!context.Users.Any(u => u.UserName == "parajulibhawani@gmail.com"))
             {
+
+
                 var user = new IdentityUser { UserName = "parajulibhawani@gmail.com" };
                 var password = new PasswordHasher<IdentityUser>();
                 var hashed = password.HashPassword(user, "Test1234!");
                 user.PasswordHash = hashed;
-                var result = await userStore.CreateAsync(user);
+
+                await userStore.CreateAsync(user);
             }
-            context.SaveChangesAsync();
+            await userStore.AddToRoleAsync(userStore, "Admin");
+
+            await context.SaveChangesAsync();
+
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -76,8 +84,8 @@ namespace TravelBlog
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            DataInitialize();
-
+            DataInitialize(app.ApplicationServices);
+            
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
